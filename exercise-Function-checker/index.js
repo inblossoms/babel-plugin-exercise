@@ -1,7 +1,7 @@
-import { tokenizer } from './tokenizer.js';
-import { parser } from './parser.js';
-import { transformer } from './transformer.js';
-import { generator } from './generator.js';
+import { tokenizer } from './src/tokenizer.js';
+import { parser } from './src/parser.js';
+import { transformer } from './src/transformer.js';
+import { generator } from './src/generator.js';
 
 const compiler = (input) => {
 	const tokens = tokenizer(input);
