@@ -27,6 +27,6 @@
 
 > babel 编译流程：source to source
 
-1. parse：通过 parse 对源码进行 ast 的转换 （计算机并不认识有语法格式组成的字符串，所以理解作为转换的前提就有了第一步的编译）；
-2. transform：遍历 ast，调用各种 transform 插件对 ast 进行增删改
-3. generate：把转换后的 ast 打印成目标代码，并生成 sourcemap
+1. parse：通过 parse 对源码进行 ast 的转换，接着间段的目的是将源码字符串转换成机器能够理解的 AST，这个过程分为：词法分析、语法分析 （计算机并不认识有语法格式组成的字符串，所以理解作为转换的前提就有了第一步的编译）；
+2. transform：遍历 ast，调用各种 transform 插件对不同的 ast 节点调用注册的相应的 visitor 函数对 ast 进行增删改
+3. generate：把转换后的 ast 打印成目标代码字符串，并生成 sourcemap（sourcemap 记录了源码到目标代码的转换关系，通过他我们可以找到目标代码中的每一个节点对应的源码位置，用于调试的时候把编译后的代码映射回源码，或者线上报错的时候提供报错位置映射到源码；
